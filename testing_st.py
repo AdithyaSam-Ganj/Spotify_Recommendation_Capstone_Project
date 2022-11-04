@@ -263,7 +263,7 @@ if add_sidebar == "Spotify in Graphs":
     st.subheader('Here is a list of the most popular tracks(December 2020)')
     popular_tracks(df,10)
 
-    st.subheader('Here is a list of the most popular artists(December 202)')
+    st.subheader('Here is a list of the most popular artists(December 2020)')
     popular_artists(df,10)
 
     st.subheader('Choose from the list of artists')
