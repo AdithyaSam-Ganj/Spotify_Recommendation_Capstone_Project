@@ -257,7 +257,45 @@ if add_sidebar == "Spotify in Graphs":
              'In this data set we are doing to look at only the top 2000 songs from each year from 1960 - 2020. ')
     df = read_data()# , df_artist = read_data()
 
-    st.subheader('This is a graph of ')
+    features = ["", "acousticness", "danceability", "energy", "speechiness", "liveness", "valence"]
+
+    st.write("Spotify stores data about some key attributes of the songs ")
+    feature = st.selectbox('Choose from a list of features', features)
+
+    if feature == "":
+        st.write("Choose a Features")
+    else:
+        plotting_animation(df, feature)
+        if feature == "acousticness" :
+            st.write("**Acoustiness**- A confidence measure from 0.0 to 1.0 of whether the track "
+                     "is acoustic. 1.0 represents high confidence the track is acoustic.")
+        elif feature == "danceability" :
+            st.write("**Danceability** — Danceability describes how suitable a track is for dancing based on a combination "
+                     "of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is the most danceable.")
+        elif feature == "energy" :
+            st.write("**Energy** — Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity "
+                     "and activity. Typically, energetic tracks feel fast, loud, and noisy.")
+        elif feature == "speechiness":
+            st.write("**Speechiness** - Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music."
+                     " Values below 0.33 most likely represent music and other non-speech-like tracks")
+        elif feature == "liveness":
+            st.write("**Liveness** - Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. "
+                "A value above 0.8 provides strong likelihood that the track is live.")
+        elif feature == "valence":
+            st.write("Valence ** - A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric),"
+                     " while tracks with low valence sound more negative (e.g. sad, depressed, angry).")
+
+    st.write( "Other key attributes of songs"  )
+    st.write("\n")
+    st.write("**Key** — The estimated overall key of the track. Integers map to pitches using standard Pitch Class notation. Ex: 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.")
+    st.write("\n")
+    st.write("**Mode** — Mode indicates the modality (major or minor) of a track, the type of scale from which its melodic content is derived. Major is represented by 1 and minor is 0.")
+    st.write("\n")
+    st.write("**Popularity** — The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.")
+    st.write("\n")
+    st.write("**Tempo** — The overall estimated tempo of a track in beats per minute (BPM).")
+    st.write("\n")
+    st.subheader('Graph showing the corellation between these key attributes')
     corr_plot(df)
 
     st.subheader('Here is a list of the most popular tracks(December 2020)')
@@ -274,18 +312,15 @@ if add_sidebar == "Spotify in Graphs":
 
     # progress_bar = st.sidebar.progress(0)
     # status_text = st.sidebar.empty()
-    features = ["","acousticness","danceability","energy","speechiness","liveness","valence"]
 
-    feature = st.selectbox('Choose from some of the top all time favourite artists', features)
-
-    if feature == "":
-        st.write("Choose a Features")
-    else : plotting_animation(df, feature)
     # progress_bar.empty()
 
     # Streamlit widgets automatically run the script from top to bottom. Since
     # this button is not connected to any other logic, it just causes a plain
     # rerun.
+
+
+###################################################################################################
 
 if add_sidebar == "Try our Song Recommendation System":
     st.header('Song Recommendation System')
@@ -295,7 +330,8 @@ if add_sidebar == "Try our Song Recommendation System":
     song_list_df = pd.DataFrame(song_list, columns=["song_name"])
     song_list_df.to_feather("song_list_df_feather.feather")
     song_list_df_feather = feather.read_feather("song_list_df_feather.feather")
-    user_name = st.selectbox('Choose your favourite song here', song_list_df_feather)
+    # s_l = song_list_df_feather.tolist()
+    user_name = st.selectbox("Choose from list of songs " , song_list_df_feather , label_visibility = 'collapsed')
     number = st.number_input('Enter number of songs to suggest: ',min_value = 1, max_value = 20, step = 1)
     random = st.radio("Discover ?",('Yes', 'No'))
     if st.button('Suggest'):
