@@ -11,7 +11,7 @@ Streamlit IO.
 
 ## Demo
 
-Link to streamlit - https://adithyasam-ganj-spotify-recommendation-capsto-testing-st-19pz6x.streamlit.app/
+Link to streamlit - https://adithyasam-ganj-spotify-recommendation-cap-streamlit-app-5ilkr1.streamlit.app/
 ## Files
 
 * The major portion of the analysis is done on the data_p.csv file available in Data folder . 
