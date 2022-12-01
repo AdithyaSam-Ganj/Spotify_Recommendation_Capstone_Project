@@ -12,6 +12,9 @@ Streamlit IO.
 ## Demo
 
 Link to streamlit - https://adithyasam-ganj-spotify-recommendation-cap-streamlit-app-5ilkr1.streamlit.app/
+
+
+The newest version of the code does not include Djongo authentication for the streamlit app as it was removed so anyone could access it 
 ## Files
 
 * The major portion of the analysis is done on the data_p.csv file available in Data folder . 
