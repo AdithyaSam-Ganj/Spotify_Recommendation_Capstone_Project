@@ -1,12 +1,10 @@
 
 # Project Title
 
-I started doing this project to demonstrate some of the skills in python, data analysis, and machine learning I learnt in the past few months. 
+I started doing this project because I wanted to understand how recommendation systems work for music recommendation. 
 I used a popular data set on Spotify data from Kaggle. I have demonstrated my skills in EDA, Data Wrangling, a few ML techniques like Kmeans, Decision trees, Random Forest, XGBoost. 
 I even implemented a simple song recommendation system . In the end I decided to implement the entire project as an app on 
 Streamlit IO.
-
-
 
 
 ## Demo
@@ -24,7 +22,7 @@ The newest version of the code does not include Djongo authentication for the st
 ## Project 
 
 1. EDA  - First step is to explore the data you are working with for the project. Dive in to see what you can find. There are some basic, required questions to be answered about the data you are working with throughout the rest of the notebook. Use this space to explore, before you dive into the details.
-2. Feature Selection -  
+2. Feature Selection -  I was able to performe the necessary feature engineering on the selected features so that the model works without any bias. 
 3. ML Modelling  for song popularity - I have used Decision Trees, Random Forest and XGBoost methods to predict the songs popularity. I tuned the hyperparameters with Grid Search and Randomised search cross validation. 
 4. Song Recommendation System - Built a content based filtering algorithm. 
 
