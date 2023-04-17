@@ -1,5 +1,5 @@
 
-# Spotify Recommendtion System - Implementation on Streamlit 
+# Spotify Recommendtion System - Implementation on Streamlit - Capstone Project 
 
 I started doing this project because I wanted to understand how recommendation systems work for music recommendation. 
 I used a popular data set on Spotify data from Kaggle. I have demonstrated my skills in EDA, Data Wrangling, a few ML techniques like Kmeans, Decision trees, Random Forest, XGBoost. 
